@@ -1,499 +1,447 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Adolfo Guillermo · Portafolio Ingeniería Manufactura & Simulación HVAC</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adolfo Hernández | Portafolio de Ingeniería de Manufactura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F17',
+                            card: '#151C28',
+                            border: '#232E42',
+                            accent: '#06B6D4',
+                            orange: '#F97316',
+                            blue: '#2563EB',
+                            purple: '#8B5CF6'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'Courier New', 'monospace']
+                    }
+                }
+            }
         }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: #f4f7fc;
-            color: #1a2c3e;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+            background-color: #0B0F17;
+            color: #E2E8F0;
         }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+        .code-font {
+            font-family: 'Fira Code', monospace;
         }
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #0b2b3b 0%, #1a4a5f 100%);
-            border-radius: 2rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            color: white;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem;
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+        .glass-panel {
+            background: rgba(21, 28, 40, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid #232E42;
         }
-        .hero-info h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
+        .glass-panel-hover {
+            transition: all 0.3s ease;
         }
-        .hero-info .tagline {
-            font-size: 1.1rem;
-            font-weight: 500;
-            border-left: 3px solid #6bc2e8;
-            padding-left: 1rem;
+        .glass-panel-hover:hover {
+            background: rgba(21, 28, 40, 0.9);
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.15);
         }
-        .hero-badge {
-            background: rgba(255,255,255,0.15);
-            border-radius: 2rem;
-            padding: 0.5rem 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            margin-top: 0.8rem;
-            font-weight: 600;
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-        .hero-photo img {
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 1.5rem;
-            background: #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0B0F17;
         }
-        /* Grids */
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #232E42;
+            border-radius: 4px;
         }
-        .card {
-            background: white;
-            border-radius: 1.8rem;
-            padding: 1.6rem 1.8rem;
-            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-            border: 1px solid rgba(0,0,0,0.03);
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #06B6D4;
         }
-        .card:hover {
-            transform: translateY(-3px);
-        }
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            border-left: 4px solid #1f7b9e;
-            padding-left: 1rem;
-            color: #0c3344;
-        }
-        .gallery-evidence {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        .evidence-card {
-            background: #f8fafc;
-            border-radius: 1.2rem;
-            padding: 0.8rem;
-            text-align: center;
-            flex: 1 1 150px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .evidence-card img {
-            width: 100%;
-            height: 110px;
-            object-fit: cover;
-            border-radius: 1rem;
-            background: #eef2f5;
-        }
-        .video-simulation {
-            margin: 1rem 0;
-            border-radius: 1.2rem;
-            overflow: hidden;
-            background: #000;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .video-simulation video {
-            width: 100%;
-            display: block;
-            border-radius: 1rem;
-        }
-        .simulation-caption {
-            background: #eef2fa;
-            padding: 1rem;
-            border-radius: 1rem;
-            margin-top: 0.8rem;
-            font-size: 0.85rem;
-            border-left: 4px solid #e68a2e;
-        }
-        .skill-tag {
-            background: #eef2fc;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #175c77;
-            display: inline-block;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .btn-cv {
-            background: #1f6e8c;
-            color: white;
-            border: none;
-            padding: 0.7rem 1.6rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: 0.2s;
-        }
-        .btn-cv:hover {
-            background: #0e526c;
-            transform: scale(1.02);
-        }
-        .contact-bar {
-            background: #e6f0f5;
-            border-radius: 1.8rem;
-            padding: 1rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        footer {
-            text-align: center;
-            margin-top: 2.5rem;
-            font-size: 0.75rem;
-            color: #5f7e8f;
-        }
-        @media (max-width: 900px) {
-            .grid-2col { grid-template-columns: 1fr; }
-            .hero { flex-direction: column; align-items: flex-start; }
-        }
-        .badge-status {
-            background: #dcfce7;
-            color: #1e7640;
-            border-radius: 40px;
-            padding: 0.2rem 0.8rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-        .video-thumb {
-            position: relative;
-            cursor: pointer;
-            border-radius: 1rem;
-            overflow: hidden;
-        }
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.6);
-            color: white;
-            font-size: 2rem;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .gradient-text {
+            background: linear-gradient(135deg, #06B6D4, #3B82F6, #F97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col antialiased custom-scrollbar overflow-x-hidden">
 
-<div class="container">
-    <!-- Hero con foto personal (placeholder reemplazable) -->
-    <div class="hero">
-        <div class="hero-info">
-            <h1>Adolfo Guillermo</h1>
-            <div class="tagline">Ingeniería en Tecnología de Manufactura · Especialista HVAC & Simulación Térmica</div>
-            <div class="hero-badge">
-                <i class="fas fa-cube"></i> SolidWorks · Análisis por Elemento Finito · Termodinámica CFD
-            </div>
-            <div style="margin-top: 0.8rem; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> Tuxtla Gutiérrez, Chiapas, México · 9° Cuatrimestre (Últimas 2 asignaturas)</div>
-        </div>
-        <div class="hero-photo">
-            <img src="1.jpeg" alt="Adolfo Guillermo">
-            <!-- Reemplazar por tu foto real: cambiar src -->
-        </div>
-    </div>
-
-    <div class="grid-2col">
-        <!-- COLUMNA IZQUIERDA: Evidencia enseñanza + Termodinámica con VIDEO de simulación multifísica -->
-        <div>
-            <!-- Capacitación Técnica / Evidencia de enseñanza -->
-            <div class="card">
-                <div class="section-title">
-                    <i class="fas fa-chalkboard-user"></i>
-                    <span>Capacitación Técnica · Instructor Tec de Cintalapa 2025</span>
-                </div>
-                <p>Programa intensivo de 5 días: diseño 3D, impresión FDM/Resina, programación de brazos robóticos y seguridad industrial.</p>
-                <div class="gallery-evidence">
-                    <div class="evidence-card">
-                        <img src="2.jpeg" alt="clase robótica">
-                        <p>Programación de brazo robótico</p>
-                    </div>
-                    <div class="evidence-card">
-                        <img src="3.jpeg" alt="impresoras 3D">
-                        <p>Taller impresión 3D</p>
-                    </div>
-                    <div class="evidence-card">
-                        <img src="4.jpeg" alt="seguridad">
-                        <p>Supervisión y seguridad</p>
-                    </div>
-                </div>
-                <p style="font-size:0.75rem; background:#ecf9ff; border-radius:1rem; padding:0.5rem;"><i class="fas fa-camera"></i> Fotografías reales de la capacitación (evidencia de instructor).</p>
-            </div>
-
-            <!-- TERMODINÁMICA APLICADA: Video de simulación multifísica + interpretación técnica -->
-            <div class="card">
-                <div class="section-title">
-                    <i class="fas fa-temperature-high"></i>
-                    <span>Termodinámica aplicada · Análisis Multifísico de Intercambiador de Calor</span>
-                </div>
-                <p><strong>Simulación avanzada: Acoplamiento Térmico-Estructural y CFD prospectivo</strong> — Proyecto orientado a optimización de sistemas HVAC y refrigeración.</p>
-                
-                <!-- VIDEO DE SIMULACIÓN: 0.28 segundos (o corto) mostrando análisis estructural/térmico -->
-                <div class="video-simulation">
-                    <video controls autoplay muted loop style="width:100%; border-radius:1rem;">
-                        <!-- SIMULACIÓN REAL: cambiar src por tu propio video (simulación multifísica). 
-                        Usamos ejemplo demostrativo con un video corto de simulación (placeholder técnico). 
-                        Se puede reemplazar por archivo local. -->
-                        <source src="5.mp4" type="video/mp4">
-                        Tu navegador no soporta video. 
-                    </video>
-                </div>
-                
-                <!-- Interpretación técnica detallada según el análisis multifísico -->
-                <div class="simulation-caption">
-                    <i class="fas fa-microscope" style="color:#e68a2e; margin-right:0.5rem;"></i>
-                    <strong>Interpretación Técnica: Análisis Multifísico de Intercambiador de Calor</strong><br><br>
-                    En este clip se observa un <strong>Análisis Estático Estructural y Térmico acoplado</strong> de un componente cilíndrico (ducto o parte de un evaporador/condensador) con aletas internas para optimizar transferencia de calor.<br><br>
-                    ✔ <strong>Acoplamiento Térmico-Estructural:</strong> Visualización de cómo la distribución de temperatura (gradientes térmicos) genera esfuerzos mecánicos y deformaciones. Crítico en refrigeración para prevenir fatiga térmica en tuberías y serpentines.<br><br>
-                    ✔ <strong>Análisis de Esfuerzos (Von-Mises):</strong> Los colores (rojo/naranja) indican zonas de máxima tensión mecánica provocadas por dilatación térmica del material bajo condiciones de operación.<br><br>
-                    ✔ <strong>Dinámica de Fluidos (CFD) Prospectiva:</strong> Hacia el final del video se integra un fluido con presión y temperatura, llevando el análisis a simulación CFD para calcular coeficiente de transferencia de calor y caída de presión en el sistema. Este enfoque híbrido (FEA+CFD) valida diseños de intercambiadores de calor de alta eficiencia.
-                </div>
-                
-                <div style="margin-top: 1rem;">
-                    <span class="skill-tag"><i class="fas fa-chart-line"></i> Cálculo de COP</span>
-                    <span class="skill-tag"><i class="fas fa-drafting-compass"></i> Diagrama P-h</span>
-                    <span class="skill-tag"><i class="fas fa-wind"></i> Psicrometría</span>
-                    <span class="skill-tag"><i class="fas fa-flask"></i> SolidWorks Flow Simulation</span>
-                </div>
-                <p style="margin-top: 0.8rem; font-size:0.8rem;"><i class="fas fa-tools"></i> Instrumentación: manómetros de alta/baja, bombas de vacío, vacuómetros — aplicados a sistemas de refrigeración reales.</p>
-            </div>
-
-            <!-- Optimización de videos: torno CNC con thumbnail -->
-            <div class="card">
-                <div class="section-title">
-                    <i class="fas fa-video"></i>
-                    <span>Maquinado CNC & Torno · Thumbnail optimizado</span>
-                </div>
-                <p>Estrategias de maquinado y simulación G-code. Vista previa para carga rápida.</p>
-                <div class="video-thumb" id="cncThumb">
-                    <img src="6.1.jpeg" alt="Vista previa maquinado CNC" style="width:100%; border-radius:1rem;">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div id="cncVideoContainer" style="display:none; margin-top:1rem;">
-                <video controls muted width="100%" style="border-radius:1rem;">
-                        <source src="6.mp4" type="video/mp4">
-                        Video demostrativo de maquinado CNC.
-                    </video>
-                    <p style="font-size:0.7rem;">* Reemplazar por video real de torno/CNC. Thumbnail previo evita carga pesada.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- COLUMNA DERECHA: Proyectos, planos, competencias y descarga -->
-        <div>
-            <!-- Proyecto DimKey con planos y fotos -->
-            <div class="card">
-                <div class="section-title">
-                    <i class="fas fa-microscope"></i>
-                    <span>Proyecto I+D: DimKey · Planos & Prototipos</span>
-                </div>
-                <p><strong>Diseño mecánico de precisión + integración ESP32-C3 y sensores láser.</strong> Manufactura aditiva optimizada.</p>
-                <div class="gallery-evidence">
-                    <div class="evidence-card">
-                        <img src="7.jpeg" alt="plano técnico">
-                        <p>Plano de ensamble SolidWorks</p>
-                    </div>
-                    <div class="evidence-card">
-                        <img src="8.jpeg" alt="prototipo FDM">
-                        <p>Prototipo impresión 3D</p>
-                    </div>
-                    <div class="evidence-card">
-                        <img src="9.jpeg" alt="electrónica">
-                        <p>Sensores láser + ESP32</p>
-                    </div>
-                </div>
-                <p style="font-size:0.8rem;"><i class="fas fa-check-circle"></i> Modelado paramétrico, análisis de tolerancias y fabricación digital.</p>
-            </div>
-
-            <!-- Competencias HVAC & Climatización refuerzo -->
-            <div class="card">
-                <div class="section-title">
-                    <i class="fas fa-wind"></i>
-                    <span>Competencias HVAC & Climatización Industrial</span>
-                </div>
-                <ul style="list-style: none;">
-                    <li style="margin-bottom:0.8rem;"><i class="fas fa-fire" style="color:#1f7b9e;"></i> <strong>Termodinámica avanzada:</strong> Ciclos de refrigeración por compresión, transferencia de calor, psicrometría, carga térmica.</li>
-                    <li style="margin-bottom:0.8rem;"><i class="fas fa-tachometer-alt" style="color:#1f7b9e;"></i> <strong>Instrumentación profesional:</strong> Manómetros de alta/baja, bombas de vacío, vacuómetros, multímetros.</li>
-                    <li style="margin-bottom:0.8rem;"><i class="fas fa-bolt"></i> <strong>Sistemas eléctricos y control:</strong> Diagnóstico de fallas en circuitos de potencia, motores, control de climatización.</li>
-                    <li><i class="fas fa-wrench"></i> <strong>Mantenimiento industrial:</strong> Planes preventivos/correctivos en equipos HVAC y maquinaria pesada.</li>
-                </ul>
-                <!-- insignia de análisis, simulación -->
-                <div style="margin-top: 0.8rem;">
-                    <span class="skill-tag"><i class="fas fa-chart-bar"></i> Análisis por elementos finitos</span>
-                    <span class="skill-tag"><i class="fas fa-water"></i> Dinámica de Fluidos</span>
-                    <span class="skill-tag"><i class="fas fa-drafting-compass"></i> SolidWorks Simulation</span>
-                </div>
-            </div>
-
-            <!-- Programas y fotos de proyectos adicionales -->
-            <div class="card">
-                <div class="section-title">
-                    <i class="fas fa-code"></i>
-                    <span>Software & Herramientas de Manufactura</span>
+    <!-- BARRA SUPERIOR -->
+    <header class="sticky top-0 z-40 w-full border-b border-brand-border/80 glass-panel">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-orange to-brand-accent p-0.5 flex items-center justify-center font-bold text-white shadow-lg shadow-brand-accent/20">
+                    <span class="text-lg">AH</span>
                 </div>
                 <div>
-                    <span class="skill-tag"><i class="fas fa-cube"></i> SOLIDWORKS</span>
-                    <span class="skill-tag"><i class="fas fa-industry"></i> Fusion 360</span>
-                    <span class="skill-tag"><i class="fas fa-tools"></i> Mastercam</span>
-                    <span class="skill-tag"><i class="fab fa-python"></i> Python / C++</span>
-                    <span class="skill-tag"><i class="fas fa-microchip"></i> ESP32/Arduino</span>
+                    <h1 class="text-sm font-bold text-white tracking-wide">ADOLFO G. HERNÁNDEZ</h1>
+                    <p class="text-xs text-brand-accent flex items-center gap-1 font-mono">
+                        <i data-lucide="code-2" class="w-3 h-3"></i> AGHSstudy / @nexo_labs
+                    </p>
                 </div>
-                <div style="margin: 1rem 0;">
-                    <img src="10.jpeg" style="width:100%; border-radius:1rem;" alt="código simulación">
-                </div>
-                <p><i class="fas fa-check-circle"></i> Desarrollo de scripts para monitoreo de variables termodinámicas y control de sistemas de refrigeración.</p>
+            </div>
 
-                <div class="section-title" style="margin-top: 1.5rem;">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Capacitación y Transferencia Tecnológica</span>
-                </div>
-                <p>Especialista en la formación de cuadros técnicos mediante el aprendizaje basado en proyectos. Mi enfoque combina la teoría termodinámica profunda con la práctica intensiva en taller, asegurando que el personal domine no solo el 'cómo', sino el 'porqué' de cada proceso de climatización y manufactura.</p>
+            <div class="hidden md:flex items-center space-x-6 text-xs font-medium tracking-wider text-slate-300">
+                <a href="#proyectos" class="hover:text-brand-accent transition-colors">PROYECTOS</a>
+                <a href="#ide" class="hover:text-brand-accent transition-colors">VISOR C++ / CAM</a>
+                <a href="#competencias" class="hover:text-brand-accent transition-colors">COMPETENCIAS</a>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/529613302559" target="_blank" class="px-3 py-1.5 rounded-md bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 hover:bg-emerald-600/30 transition-all">
+                    <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                    <span class="hidden sm:inline">WhatsApp</span>
+                </a>
+                <a href="mailto:223469@itm.upchiapas.edu.mx" class="px-3 py-1.5 rounded-md bg-brand-orange/20 text-brand-orange border border-brand-orange/40 text-xs font-semibold flex items-center gap-1.5 hover:bg-brand-orange/30 transition-all">
+                    <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                    <span>Contactar</span>
+                </a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Botón de descarga de CV completo y contacto -->
-    <div class="contact-bar" style="justify-content: space-between;">
-        <div><i class="fas fa-envelope"></i> aghstudy.x32@gmail.com · <i class="fab fa-linkedin"></i> /in/adolfo-gm</div>
-        <button id="downloadCVFull" class="btn-cv"><i class="fas fa-download"></i> Descargar CV Completo (PDF)</button>
-    </div>
-    <footer>
-        <i class="fas fa-laptop-code"></i> Adolfo Guillermo · Portafolio integral: Manufactura, Simulación Térmica, HVAC y proyectos I+D.
+    <!-- HERO SECTION -->
+    <section class="relative py-12 lg:py-20 border-b border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-7 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                        PORTAFOLIO TÉCNICO OFICIAL
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                        Ingeniería en <span class="gradient-text">Tecnologías de Manufactura</span> & Control
+                    </h1>
+                    
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Desarrollador e integrador de soluciones electromecánicas. Especialista en diseño CAD/CAM (<strong class="text-white">SolidWorks/Mastercam</strong>), programación de firmware en <strong class="text-white">C++</strong>, ensamble de tableros industriales y tecnologías web (<strong class="text-white">HTML/CSS</strong>).
+                    </p>
+
+                    <!-- METRICAS / RANGOS -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-mono">
+                        <div class="p-3 rounded-lg glass-panel border-l-2 border-brand-accent">
+                            <span class="text-slate-400 block text-[10px]">C++ / FIRMWARE</span>
+                            <span class="text-white font-bold">Control & Sensores</span>
+                        </div>
+                        <div class="p-3 rounded-lg glass-panel border-l-2 border-brand-orange">
+                            <span class="text-slate-400 block text-[10px]">CAD / CAM</span>
+                            <span class="text-white font-bold">SolidWorks / Mastercam</span>
+                        </div>
+                        <div class="p-3 rounded-lg glass-panel border-l-2 border-brand-purple">
+                            <span class="text-slate-400 block text-[10px]">WEB & SOFTWARE</span>
+                            <span class="text-white font-bold">HTML5 / CSS3</span>
+                        </div>
+                        <div class="p-3 rounded-lg glass-panel border-l-2 border-emerald-500">
+                            <span class="text-slate-400 block text-[10px]">IMPRESIÓN 3D</span>
+                            <span class="text-white font-bold">FDM & Resina SLA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERFIL LATERAL -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md glass-panel p-5 rounded-2xl border border-brand-border">
+                        <div class="flex items-center gap-4 border-b border-brand-border pb-4 mb-4">
+                            <div class="w-16 h-16 rounded-full bg-brand-card border-2 border-brand-accent flex items-center justify-center font-bold text-xl text-brand-accent">
+                                AH
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-white">Adolfo G. Hernández</h3>
+                                <p class="text-xs text-slate-400">Univ. Politécnica de Chiapas</p>
+                                <span class="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                    ● Movilidad Disponible
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div class="flex justify-between py-1 border-b border-brand-border/40">
+                                <span class="text-slate-400">Ubicación:</span>
+                                <span class="font-semibold text-white">Tuxtla Gutiérrez, Chiapas</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-brand-border/40">
+                                <span class="text-slate-400">Contacto Directo:</span>
+                                <span class="font-semibold text-brand-accent">961 330 2559</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">Tecnologías Clave:</span>
+                                <span class="font-semibold text-brand-orange text-right">SolidWorks · Mastercam · C++ · HTML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE PROYECTOS -->
+    <section id="proyectos" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="layers" class="text-brand-accent"></i>
+                Proyectos Integrales de Ingeniería
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">Sistemas de automatización, firmware embebido, diseño CAD y rutinas de maquinado CNC.</p>
+        </div>
+
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Proyectos inyectados mediante Javascript -->
+        </div>
+    </section>
+
+    <!-- VISOR DE CÓDIGO (IDE INTERACTIVO) -->
+    <section id="ide" class="py-12 border-t border-brand-border bg-brand-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="terminal" class="text-brand-orange"></i>
+                    Visor de Código & Rutinas de Manufactura
+                </h2>
+                <p class="text-xs text-slate-400 mt-1">Selecciona los módulos programados en C++, Código G y estructuras web para inspeccionar la lógica.</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl overflow-hidden border border-brand-border grid grid-cols-1 lg:grid-cols-12">
+                <!-- Selector de Archivos -->
+                <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-brand-border p-4 bg-brand-dark/50 space-y-2 text-xs font-mono">
+                    <button onclick="loadCode('electron')" id="file-electron" class="w-full text-left p-3 rounded-lg border border-brand-accent/40 bg-brand-accent/10 text-brand-accent flex items-center justify-between">
+                        <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4"></i> llenado_electron.cpp</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-brand-accent/20">C++</span>
+                    </button>
+                    <button onclick="loadCode('dimkey')" id="file-dimkey" class="w-full text-left p-3 rounded-lg border border-brand-border/60 text-slate-300 flex items-center justify-between hover:bg-slate-800/50">
+                        <span class="flex items-center gap-2"><i data-lucide="radio" class="w-4 h-4 text-brand-orange"></i> dimkey_esp32.cpp</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-brand-orange/20 text-brand-orange">ESP32</span>
+                    </button>
+                    <button onclick="loadCode('gcode')" id="file-gcode" class="w-full text-left p-3 rounded-lg border border-brand-border/60 text-slate-300 flex items-center justify-between hover:bg-slate-800/50">
+                        <span class="flex items-center gap-2"><i data-lucide="settings-2" class="w-4 h-4 text-emerald-400"></i> fresado_mastercam.nc</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">G-Code</span>
+                    </button>
+                </div>
+
+                <!-- Contenido de Código -->
+                <div class="lg:col-span-8 flex flex-col bg-[#0d1117]">
+                    <div class="flex items-center justify-between px-4 py-3 border-b border-brand-border bg-brand-card/80 text-xs font-mono">
+                        <span id="code-filename" class="text-slate-300 font-bold flex items-center gap-2">
+                            <i data-lucide="file-code" class="w-4 h-4 text-brand-accent"></i> llenado_electron.cpp
+                        </span>
+                        <button onclick="copyCurrentCode()" class="px-2.5 py-1 rounded bg-brand-border text-slate-300 text-[11px]">
+                            <span id="copy-btn-text">Copiar Código</span>
+                        </button>
+                    </div>
+                    <pre class="p-4 overflow-x-auto code-font text-xs leading-relaxed text-slate-300 custom-scrollbar h-80" id="code-content"></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPETENCIAS TÉCNICAS -->
+    <section id="competencias" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <i data-lucide="wrench" class="text-brand-accent"></i>
+            Habilidades Técnicas & Herramientas
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel p-5 rounded-xl border border-brand-border">
+                <h3 class="font-bold text-white text-sm mb-3">Diseño CAD / CAM</h3>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex justify-between"><span>SolidWorks</span> <span class="text-brand-accent font-mono">Avanzado</span></li>
+                    <li class="flex justify-between"><span>Mastercam</span> <span class="text-brand-accent font-mono">Dominio</span></li>
+                    <li class="flex justify-between"><span>Fusion 360</span> <span class="text-slate-400 font-mono">Práctico</span></li>
+                </ul>
+            </div>
+
+            <div class="glass-panel p-5 rounded-xl border border-brand-border">
+                <h3 class="font-bold text-white text-sm mb-3">Firmware & Control</h3>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex justify-between"><span>C++ / Arduino</span> <span class="text-brand-orange font-mono">Avanzado</span></li>
+                    <li class="flex justify-between"><span>ESP32 / Microcontroladores</span> <span class="text-brand-orange font-mono">Avanzado</span></li>
+                    <li class="flex justify-between"><span>Tableros 24V / 220V</span> <span class="text-slate-300 font-mono">Ensamble</span></li>
+                </ul>
+            </div>
+
+            <div class="glass-panel p-5 rounded-xl border border-brand-border">
+                <h3 class="font-bold text-white text-sm mb-3">Impresión 3D & Slicing</h3>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex justify-between"><span>Slicing FDM / Resina SLA</span> <span class="text-brand-purple font-mono">Experto</span></li>
+                    <li class="flex justify-between"><span>Ajuste de Parámetros</span> <span class="text-brand-purple font-mono">Avanzado</span></li>
+                    <li class="flex justify-between"><span>Calibración Hardware</span> <span class="text-slate-300 font-mono">Físico</span></li>
+                </ul>
+            </div>
+
+            <div class="glass-panel p-5 rounded-xl border border-brand-border">
+                <h3 class="font-bold text-white text-sm mb-3">Electromecánica & Web</h3>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex justify-between"><span>Diagnóstico HVAC / Inverter</span> <span class="text-emerald-400 font-mono">Docente</span></li>
+                    <li class="flex justify-between"><span>HTML5 / CSS3</span> <span class="text-blue-400 font-mono">Desarrollo</span></li>
+                    <li class="flex justify-between"><span>Instrumentación Digital</span> <span class="text-slate-300 font-mono">Mantenimiento</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-auto border-t border-brand-border bg-brand-dark py-8 text-center text-xs text-slate-500 font-mono">
+        <p>© 2026 Adolfo Guillermo Hernández Hernández | Universidad Politécnica de Chiapas</p>
     </footer>
-</div>
 
-<script>
-    // Optimización video CNC: thumbnail a video real
-    const thumb = document.getElementById('cncThumb');
-    const videoContainer = document.getElementById('cncVideoContainer');
-    if(thumb) {
-        thumb.addEventListener('click', () => {
-            thumb.style.display = 'none';
-            videoContainer.style.display = 'block';
-            const videoElem = videoContainer.querySelector('video');
-            if(videoElem) videoElem.load();
+    <script>
+        const projects = [
+            {
+                id: 'electron',
+                badge: 'Electrón Tuxtla · C++',
+                title: 'Sistema Automatizado de Llenado',
+                desc: 'Armado de tablero eléctrico de control industrial de 24V/220V y desarrollo de firmware en C++ con máquina de estados finitos y filtrado de debounce para sensores inductivos.',
+                image: '1.jpg'
+            },
+            {
+                id: 'dimkey',
+                badge: 'SolidWorks · ESP32-C3',
+                title: 'Dispositivo Medidor "DimKey"',
+                desc: 'Modelado 3D de carcasa en SolidWorks optimizada para impresión 3D (FDM/Resina). Integración de firmware en C++ para lectura de sensor láser ToF y pantalla TFT.',
+                image: '2.jpeg'
+            },
+            {
+                id: 'cetea',
+                badge: 'CETEA · Electromecánica',
+                title: 'Capacitación HVAC & Sistemas Inverter',
+                desc: 'Instrucción técnica práctica en mantenimiento y diagnóstico de sistemas de climatización, medición de tarjetas inverter, uso de colectores digitales y bombas de vacío.',
+                image: '3.jpeg'
+            }
+        ];
+
+        const codeDatabase = {
+            electron: `// SISTEMA DE LLENADO - PLANTA ELECTRÓN TUXTLA
+// Desarrollado por: Adolfo G. Hernández | C++
+#define SENSOR_INDUCTIVO 2
+#define VALVULA_LLENADO  7
+#define ALARMA_LLENO     12
+
+enum Estado { ESPERANDO, LLENANDO, FINALIZADO };
+Estado estadoActual = ESPERANDO;
+
+void setup() {
+  pinMode(SENSOR_INDUCTIVO, INPUT_PULLUP);
+  pinMode(VALVULA_LLENADO, OUTPUT);
+  pinMode(ALARMA_LLENO, OUTPUT);
+}
+
+void loop() {
+  bool botellaDetectada = !digitalRead(SENSOR_INDUCTIVO);
+  
+  switch(estadoActual) {
+    case ESPERANDO:
+      if(botellaDetectada) {
+        digitalWrite(VALVULA_LLENADO, HIGH);
+        estadoActual = LLENANDO;
+      }
+      break;
+    case LLENANDO:
+      delay(3000); // Caudal de llenado de 5L
+      digitalWrite(VALVULA_LLENADO, LOW);
+      digitalWrite(ALARMA_LLENO, HIGH);
+      delay(500);
+      digitalWrite(ALARMA_LLENO, LOW);
+      estadoActual = ESPERANDO;
+      break;
+  }
+}`,
+            dimkey: `// DISPOSITIVO DIMKEY - SENSOR LÁSER ToF
+// Microcontrolador: ESP32-C3 | C++
+#include <Adafruit_VL53L0X.h>
+
+Adafruit_VL53L0X lox = Adafruit_VL53L0X();
+
+void setup() {
+  Serial.begin(115200);
+  if (!lox.begin()) {
+    Serial.println("Error al iniciar VL53L0X");
+    while(1);
+  }
+}
+
+void loop() {
+  VL53L0X_RangingMeasurementData_t measure;
+  lox.rangingTest(&measure, false);
+
+  if (measure.RangeStatus != 4) {
+    Serial.print("Distancia (mm): ");
+    Serial.println(measure.RangeMilliMeter);
+  }
+  delay(100);
+}`,
+            gcode: `( RUTINA DE MECANIZADO EN MASTERCAM )
+( AUTOR: ADOLFO G. HERNÁNDEZ )
+G21 G90 G40 G80
+T1 M06 (FRESA 10MM)
+S3200 M03
+G00 G54 X0. Y0.
+G43 H01 Z15. M08
+G01 Z-2.0 F250
+G01 X50.0 F500.0
+G02 X70.0 Y-20.0 R20.0
+G00 Z15. M09
+M30`
+        };
+
+        let currentKey = 'electron';
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = '';
+            projects.forEach(p => {
+                grid.innerHTML += `
+                    <div class="glass-panel rounded-xl overflow-hidden border border-brand-border flex flex-col">
+                        <div class="h-44 bg-slate-900 relative">
+                            <img src="${p.image}" class="w-full h-full object-cover opacity-80">
+                            <span class="absolute top-3 left-3 px-2 py-1 rounded bg-brand-dark/90 border border-brand-border text-[10px] font-mono text-brand-accent">
+                                ${p.badge}
+                            </span>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="font-bold text-white text-base mb-2">${p.title}</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">${p.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function loadCode(key) {
+            currentKey = key;
+            document.getElementById('code-content').textContent = codeDatabase[key];
+            const filename = document.getElementById('code-filename');
+            if(key === 'electron') filename.innerHTML = `<i data-lucide="cpu" class="w-4 h-4 text-brand-accent"></i> llenado_electron.cpp`;
+            if(key === 'dimkey') filename.innerHTML = `<i data-lucide="radio" class="w-4 h-4 text-brand-orange"></i> dimkey_esp32.cpp`;
+            if(key === 'gcode') filename.innerHTML = `<i data-lucide="settings-2" class="w-4 h-4 text-emerald-400"></i> fresado_mastercam.nc`;
+            lucide.createIcons();
+        }
+
+        function copyCurrentCode() {
+            navigator.clipboard.writeText(codeDatabase[currentKey]).then(() => {
+                const btn = document.getElementById('copy-btn-text');
+                btn.textContent = '¡Copiado!';
+                setTimeout(() => btn.textContent = 'Copiar Código', 2000);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            loadCode('electron');
+            lucide.createIcons();
         });
-    }
-
-    // Botón de descarga de CV completo (simulación PDF con toda la info profesional, termodinámica, proyectos)
-    const downloadBtn = document.getElementById('downloadCVFull');
-    downloadBtn.addEventListener('click', () => {
-        const cvText = `ADOLFO GUILLERMO - INGENIERÍA EN TECNOLOGÍA DE MANUFACTURA
-
---- PERFIL PROFESIONAL ---
-Especialista en manufactura aditiva, robótica, termodinámica aplicada y sistemas HVAC. Experiencia en simulación multifísica (FEA/CFD), diseño mecánico de precisión e instrumentación industrial.
-
---- EXPERIENCIA DESTACADA ---
-• Instructor de Manufactura Aditiva y Robótica | Tec de Cintalapa (2025)
-   - Capacitación técnica 5 días: impresión 3D, robótica, seguridad.
-• Proyecto I+D DimKey (2026): Diseño SolidWorks, integración ESP32-C3, sensores láser, optimización para manufactura aditiva.
-
---- SIMULACIÓN AVANZADA (TERMODINÁMICA) ---
-• Análisis Multifísico de Intercambiador de Calor: acoplamiento térmico-estructural, esfuerzos Von-Mises, CFD prospectivo.
-• Ciclos de refrigeración por compresión, diagrama P-h, cálculo de COP, psicrometría.
-• Uso de SolidWorks Flow Simulation y Python para análisis de gradientes térmicos y caída de presión.
-
---- FORMACIÓN ---
-Ingeniería en Tecnología de Manufactura - Universidad Politécnica de Chiapas (2022-2026) - 9° cuatrimestre.
-Técnico en Electricidad - CECYTE 10 Simojovel (2016-2019).
-
---- COMPETENCIAS CLAVE ---
-✔ Simulación térmica y análisis por elementos finitos.
-✔ Instrumentación: manómetros, bombas de vacío, vacuómetros.
-✔ Sistemas de control para climatización y mantenimiento industrial.
-✔ SolidWorks avanzado, Mastercam, Fusion360, Python, C++.
-
---- PROYECTOS ADICIONALES ---
-• Optimización de prototipos para manufactura aditiva (FDM/Resina).
-• Planos técnicos de piezas para torno CNC y estrategias de maquinado.
-• Desarrollo de firmware para monitoreo de temperatura y presión con ESP32.
-
-Contacto: adolfo.guillermo@manufactura.com | +52 961 123 4567
-Fecha de generación: ${new Date().toLocaleString()}
---- Especialista en HVAC, refrigeración y simulación computacional ---`;
-
-        const blob = new Blob([cvText], {type: 'application/pdf'}); // simulado como pdf descargable
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'CV_Completo_Adolfo_Guillermo_Simulacion.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-
-        // feedback visual
-        const toast = document.createElement('div');
-        toast.innerText = '✅ CV completo descargado (incluye simulación térmica, HVAC + proyectos)';
-        toast.style.position = 'fixed';
-        toast.style.bottom = '20px';
-        toast.style.right = '20px';
-        toast.style.backgroundColor = '#1f6e8c';
-        toast.style.color = 'white';
-        toast.style.padding = '12px 20px';
-        toast.style.borderRadius = '40px';
-        toast.style.fontSize = '0.85rem';
-        toast.style.zIndex = '999';
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 4000);
-    });
-
-    // Nota para el usuario: reemplazar los videos y fotos por archivos reales
-    console.log("Portafolio actualizado: Simulación multifísica de intercambiador de calor con interpretación técnica detallada.");
-</script>
-
-<!-- Instrucciones para personalización:
-1. VIDEO DE SIMULACIÓN: reemplazar la URL del <source> dentro de .video-simulation video por tu propio clip de 0.28 seg (o mayor) mostrando análisis estructural/térmico acoplado.
-2. FOTOS REALES: cambiar todas las rutas de placehold.co por imágenes locales (ej: "img/clase1.jpg", "img/plano_dimkey.png").
-3. VIDEO CNC: Sustituir el video de ejemplo en #cncVideoContainer por tu propio video de maquinado optimizado.
-4. Foto personal: modificar src de hero-photo.
--->
+    </script>
 </body>
 </html>
